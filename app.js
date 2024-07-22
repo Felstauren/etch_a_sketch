@@ -3,8 +3,6 @@ grid = document.querySelector("#grid")
 let randomColor = false
 
 
-
-
 createGrid();
 changeColor();
 
@@ -13,17 +11,13 @@ changeColor();
     let AnzahlCell = prompt("Please enter the number of cells you want to:")
     document.querySelector("#gridSize").innerText = `Grid Size: ${AnzahlCell}`
 
-    const gridSize = 440
+    const gridSize = 550
     const cellSize = (gridSize / AnzahlCell)
 
 
     if (AnzahlCell <= 100) {
-        for(let i = 0; i < AnzahlCell * AnzahlCell; i++){
-            let cell = document.createElement("div");
-            cell.classList.add("cell");
-            cell.style.width = `${cellSize}px`;
-            cell.style.height = `${cellSize}px`;
-            grid.appendChild(cell);
+        for(let i = 0; i < AnzahlCell * AnzahlCell; i++){  
+            createElement(cellSize);
         }
     } else {
         alert("Please enter a number less or equal to 100");
@@ -31,6 +25,18 @@ changeColor();
     }       
 }
 
+
+
+// create Element
+
+function createElement(cellSize) {
+    let cell = document.createElement("div");
+    cell.classList.add("cell");
+    cell.style.width = `${cellSize}px`;
+    cell.style.height = `${cellSize}px`;
+    grid.appendChild(cell);
+
+}
 
 
 // random Color --> Button
@@ -61,6 +67,8 @@ function randomChangeColor() {
 }
 
 
+
+
 function changeColor() {
     document.addEventListener("mouseover", e => {
         if(e.target.classList.contains("cell")){
@@ -70,6 +78,9 @@ function changeColor() {
         }
     })
 }
+
+
+
 
 // generate new Grid --> Button
 document.querySelector("#btn").addEventListener("click", e => {

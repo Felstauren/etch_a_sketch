@@ -1,6 +1,6 @@
 .grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: wrap;
     width: 550px ;
     height: 550px;
     border: 1px solid black;
@@ -8,6 +8,7 @@
     position: relative;
     top: 250px;
     right: 200px;
+    overflow: hidden;
 }
 
 .container {
